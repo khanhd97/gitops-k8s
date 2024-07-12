@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name:  node-app
-        image:  darkknight97/nodejs-app
+        image:  darkknight97/nodejs-app:v2
         ports:
           - containerPort: 3000
 ---
