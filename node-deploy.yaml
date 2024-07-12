@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  node-app
+  labels:
+    app:  nodejs-app-deploy
+spec:
+  selector:
+    matchLabels:
+      app: nodejs-app
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  nodejs-app
+    spec:
+      containers:
+      - name:  node-app
+        image:  darkknight97/nodejs-app
+        ports:
+          - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-svc
+spec:
+  selector:
+    app: nodejs-app
+  type: NodePort
+  ports:
+  - 
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
