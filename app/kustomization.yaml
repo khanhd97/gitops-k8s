@@ -3,6 +3,6 @@ kind: Kustomization
 images:
   - name: darkknight97/nodejs-app
     newName: darkknight97/nodejs-app
-    newTag: v1
+    newTag: v2
 resources:
   - ../base
