@@ -4,5 +4,13 @@ images:
   - name: darkknight97/nodejs-app
     newName: darkknight97/nodejs-app
     newTag: v2
+patches:
+  - target:
+      kind: Deployment
+      name: node-app
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2
 resources:
   - ../base
