@@ -3,7 +3,7 @@ kind: Kustomization
 images:
   - name: darkknight97/nodejs-app
     newName: darkknight97/nodejs-app
-    newTag: v2
+    newTag: latest
 patches:
   - target:
       kind: Deployment
